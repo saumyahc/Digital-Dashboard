@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Product Update</title>
+</head>
+<body>
+    <h1>Product Update Debug Helper</h1>
+    <p>Follow these steps to debug the product update issue:</p>
+    
+    <h2>Step 1: Check Browser Console</h2>
+    <ol>
+        <li>Open your Digital Dashboard in the browser</li>
+        <li>Press F12 to open Developer Tools</li>
+        <li>Go to the Console tab</li>
+        <li>Try to update a product</li>
+        <li>Look for any error messages in red</li>
+    </ol>
+    
+    <h2>Step 2: Check Network Tab</h2>
+    <ol>
+        <li>In Developer Tools, go to the Network tab</li>
+        <li>Try to update a product</li>
+        <li>Look for the PUT request to /api/products/:id</li>
+        <li>Check if it shows any errors (red status)</li>
+        <li>Click on the request to see the details</li>
+    </ol>
+    
+    <h2>Step 3: Check Backend Console</h2>
+    <ol>
+        <li>Look at your backend terminal/console</li>
+        <li>You should see debug messages when updating a product</li>
+        <li>Look for any error messages</li>
+    </ol>
+    
+    <h2>Common Issues & Solutions:</h2>
+    
+    <h3>Issue 1: "Product not found"</h3>
+    <p><strong>Solution:</strong> Make sure the product ID is correct and the product exists in the database.</p>
+    
+    <h3>Issue 2: "Validation failed"</h3>
+    <p><strong>Solution:</strong> Check that all required fields are filled and have valid values.</p>
+    
+    <h3>Issue 3: "Network error"</h3>
+    <p><strong>Solution:</strong> Make sure the backend server is running on port 5000.</p>
+    
+    <h3>Issue 4: "Unauthorized"</h3>
+    <p><strong>Solution:</strong> Make sure you're logged in and the JWT token is valid.</p>
+    
+    <h2>Quick Test:</h2>
+    <p>Try updating a product with these values:</p>
+    <ul>
+        <li>Name: Test Product</li>
+        <li>Model Number: TEST-001</li>
+        <li>Description: Test description</li>
+        <li>Category: Prosthetics</li>
+        <li>Cost Price: 100</li>
+        <li>Selling Price: 150</li>
+        <li>Stock Quantity: 20</li>
+        <li>Low Stock Threshold: 10</li>
+    </ul>
+    
+    <script>
+        console.log("Debug helper loaded. Check the steps above to troubleshoot product updates.");
+    </script>
+</body>
+</html>

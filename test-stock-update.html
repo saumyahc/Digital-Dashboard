@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Update Test Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .step { background: #f0f8ff; padding: 15px; margin: 10px 0; border-left: 4px solid #007bff; }
+        .warning { background: #fff3cd; padding: 15px; margin: 10px 0; border-left: 4px solid #ffc107; }
+        .success { background: #d4edda; padding: 15px; margin: 10px 0; border-left: 4px solid #28a745; }
+        .code { background: #f8f9fa; padding: 10px; border-radius: 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Stock Update & Low Stock Removal Test</h1>
+    
+    <div class="step">
+        <h2>📋 Test Scenario</h2>
+        <p>This test will show how editing a product's stock quantity automatically removes it from low stock products when the stock goes above the threshold.</p>
+    </div>
+
+    <div class="step">
+        <h2>🎯 Step 1: Create a Low Stock Product</h2>
+        <ol>
+            <li>Go to <strong>Products</strong> page</li>
+            <li>Click <strong>"Add Product"</strong></li>
+            <li>Fill in the form with these values:
+                <div class="code">
+                    Name: Test Product<br>
+                    Model Number: TEST-001<br>
+                    Description: Test product for stock update<br>
+                    Category: Prosthetics<br>
+                    Cost Price: 100<br>
+                    Selling Price: 150<br>
+                    Stock Quantity: 5<br>
+                    Low Stock Threshold: 10
+                </div>
+            </li>
+            <li>Click <strong>"Create Product"</strong></li>
+        </ol>
+        <p><strong>Expected Result:</strong> You should see a red "Low Stock Alert" notification because stock (5) is below threshold (10).</p>
+    </div>
+
+    <div class="step">
+        <h2>🔄 Step 2: Update Stock Above Threshold</h2>
+        <ol>
+            <li>In the Products list, find your test product</li>
+            <li>Click the <strong>Edit button</strong> (pencil icon)</li>
+            <li>Change the <strong>Stock Quantity</strong> from 5 to 15</li>
+            <li>Click <strong>"Update Product"</strong></li>
+        </ol>
+        <p><strong>Expected Results:</strong></p>
+        <ul>
+            <li>✅ Low stock notification should <strong>disappear</strong></li>
+            <li>✅ Success notification should appear: "Stock Replenished"</li>
+            <li>✅ Product badge should change from <span style="background: #fee; color: #c00; padding: 2px 6px; border-radius: 10px;">red</span> to <span style="background: #efe; color: #060; padding: 2px 6px; border-radius: 10px;">green</span></li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h2>📉 Step 3: Test Stock Going Below Threshold</h2>
+        <ol>
+            <li>Edit the same product again</li>
+            <li>Change <strong>Stock Quantity</strong> from 15 to 8</li>
+            <li>Click <strong>"Update Product"</strong></li>
+        </ol>
+        <p><strong>Expected Results:</strong></p>
+        <ul>
+            <li>✅ New low stock notification should appear</li>
+            <li>✅ Product badge should change back to <span style="background: #fee; color: #c00; padding: 2px 6px; border-radius: 10px;">red</span></li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        <h2>⚠️ Troubleshooting</h2>
+        <p><strong>If notifications don't appear:</strong></p>
+        <ul>
+            <li>Check browser console for errors (F12 → Console)</li>
+            <li>Make sure backend server is running</li>
+            <li>Check if you're logged in</li>
+            <li>Refresh the page and try again</li>
+        </ul>
+    </div>
+
+    <div class="success">
+        <h2>✅ Success Indicators</h2>
+        <ul>
+            <li><strong>Automatic Removal:</strong> Low stock notifications disappear when stock > threshold</li>
+            <li><strong>Success Feedback:</strong> "Stock Replenished" notification appears</li>
+            <li><strong>Visual Updates:</strong> Product badges change color automatically</li>
+            <li><strong>Real-time:</strong> Changes happen immediately without page refresh</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h2>🔍 What to Watch For</h2>
+        <ol>
+            <li><strong>Notification Panel:</strong> Top-right corner of the screen</li>
+            <li><strong>Product List:</strong> Stock quantity badges and colors</li>
+            <li><strong>Console Logs:</strong> Debug information in browser console</li>
+            <li><strong>Backend Logs:</strong> Server console output</li>
+        </ol>
+    </div>
+
+    <script>
+        console.log("🧪 Stock Update Test Guide loaded!");
+        console.log("Follow the steps above to test the stock update functionality.");
+    </script>
+</body>
+</html>
